@@ -70,11 +70,11 @@ console.log('Plugins installed successful ✅')
 console.log('SHAGEE-MD connected to whatsapp ✅')
 
 
-let up =` > ✔ SHAGEE-MD BOT IS READY
+let up =`  *SHAGEE MD BOT START*
 > ⚖TYPE MENU ALL COMMAND LIST
 > 🔰THANKS FOR USING SHAGEE-MD-V1🔰\n\nPREFIX: ${prefix}`;
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/900435c6d3157c98c3c88.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/ec57b757c3c5890d510c3.jpg` }, caption: up })
 
 }
 })
