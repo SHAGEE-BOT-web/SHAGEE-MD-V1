@@ -41,7 +41,7 @@ let downlodUrl = down.dl_url
 
 // send audio massge
 await conn.sendMassge(from,{audio:{url:downlodUrl},minetype:"audio/mpeg"},{quoted:mek})
-await conn.sendMassge(from,{document:{url:downlodUrl},minetype:"audio/mpeg",fileName:data.title +".mp3",caption:"DOWNLOD BY SHAGEE-MD V1"},{quoted:mek})
+await conn.sendMassge(from,{document:{url:downlodUrl},minetype:"audio/mpeg",fileName:data.title +".mp3",caption:"*_DOWNLOD BY SHAGEE-MD V1_*"},{quoted:mek})
 
 }catch(e){
 console.log(e)
@@ -95,7 +95,7 @@ let downlodUrl = down.dl_url
 // send video massge
     
 await conn.sendMassge(from,{video:{url:downlodUrl},minetype:"video/mp4"},{quoted:mek})
-await conn.sendMassge(from,{document:{url:downlodUrl},minetype:"video/mp4",fileName:data.title +".mp4",caption:"*DOWNLOD BY SHAGEE-MD V1*"},{quoted:mek})
+await conn.sendMassge(from,{document:{url:downlodUrl},minetype:"video/mp4",fileName:data.title +".mp4",caption:"*_DOWNLOD BY SHAGEE-MD V1_*"},{quoted:mek})
 
 
 
