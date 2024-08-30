@@ -14,7 +14,7 @@ const search = await  yts(q)
 const data =search .videos[0]:
 const url = data.url
 
-let desc =`🎶 SHAGEE MD AUDIO DOWNLODER🎶  
+let desc =`🎶 *SHAGEE MD AUDIO DOWNLODER* 🎶  
 |__________
 |\_ ℹ️ 𝚃𝚒𝚝𝚕𝚎 : ${data.title}
 |
@@ -27,15 +27,24 @@ let desc =`🎶 SHAGEE MD AUDIO DOWNLODER🎶
 |\_📉 𝚅𝚒𝚎𝚠𝚜 :${data.views}
 |__________
 
-> POWERED by DINETH Ofc
-> downlod by SHAGEE MD
+*_DOWNLODING YOUR SONG..._*
+
+> POWERED by DINETH Ofc🚀📩
+> downlod by SHAGEE MD 
 `
   await conn.sendMassge(from,{image:{url data.thumbnail},caption:desc},{quoted:mek}):
 
   // downlod audio 
 
-  let down methana idn hdnn thiyenne
-  ============================================================================================================================
+let down = await fg.yta(url)
+let downlodUrl = down.dl_url
+
+// send audio massge
+await conn.sendMassge(from,{audio:{url:downlodUrl},minetype:"audio/mpeg"},{quoted:mek})
+
+
+
+    
 }catch(e){
 console.log(e)
  reply(`${e}`)
