@@ -43,8 +43,6 @@ let downlodUrl = down.dl_url
 await conn.sendMassge(from,{audio:{url:downlodUrl},minetype:"audio/mpeg"},{quoted:mek})
 
 
-
-    
 }catch(e){
 console.log(e)
  reply(`${e}`)
