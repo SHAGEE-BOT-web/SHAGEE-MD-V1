@@ -19,7 +19,7 @@ const axios = require('axios')
 const { File } = require('megajs')
 const prefix = '.'
 
-const ownerNumber = ['94717518710']
+const ownerNumber = ['94710136994']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -37,12 +37,13 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 //=============================================
+
 async function connectToWA() {
-console.log("Connecting  SHAGEE-MD ...✅");
+console.log("Connecting SHAGEE-MD BOT 🤖...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
-  const conn = makeWASocket({
+const conn = makeWASocket({
         logger: P({ level: 'silent' }),
         printQRInTerminal: false,
         browser: Browsers.macOS("Firefox"),
@@ -50,16 +51,15 @@ var { version } = await fetchLatestBaileysVersion()
         auth: state,
         version
         })
-
-  conn.ev.on('connection.update', (update) => {
+    
+conn.ev.on('connection.update', (update) => {
 const { connection, lastDisconnect } = update
 if (connection === 'close') {
 if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
-
-  } else if (connection === 'open') {
-console.log('😼 Installing... ')
+} else if (connection === 'open') {
+console.log('🤴 Installing')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
@@ -67,26 +67,22 @@ require("./plugins/" + plugin);
 }
 });
 console.log('Plugins installed successful ✅')
-console.log('SHAGEE-MD connected to whatsapp ✅')
+console.log('Bot connected to whatsapp ✅')
 
+let up = `SHAGEE-MD CONNETED SUCCESSFULLY ✅\n\nPREFIX:${prefix}`;
 
-let up =`  *SHAGEE MD BOT START*
-> ⚖TYPE MENU ALL COMMAND LIST
-> 🔰THANKS FOR USING SHAGEE-MD-V1🔰\n\nPREFIX: ${prefix}`;
-
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/ec57b757c3c5890d510c3.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/d3b6c8f9b0f94a5131742.jpg` }, caption: up })
 
 }
 })
 conn.ev.on('creds.update', saveCreds)  
 
-  
 conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
 if (!mek.message) return	
 mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-if (mek.key && mek.key.remoteJid === 'status@broadcast'&& config.AUTO_READ_STATUS ==="true"){
-await conn.readMassages([mek.key])
+if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
+await conn.readMessages([mek.key])
 }
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
@@ -112,11 +108,11 @@ const participants = isGroup ? await groupMetadata.participants : ''
 const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
 const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
 const isAdmins = isGroup ? groupAdmins.includes(sender) : false
+const isReact = m.message.reactionMessage ? true : false
 const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
 
-  
 conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               let mime = '';
               let res = await axios.head(url)
@@ -138,14 +134,30 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
               }
             }
-
-  //============================WORK-TYPE================================================ 
-if(!isOwner && config.MODE === "privete") return
+ 
+//===================================work-type========================================= 
+if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
 if(!isOwner && !isGroup && config.MODE === "groups") return
-//=====================================================================================
+//=========OWNER - REACTION ===============================  
+if(senderNumber.includes("94718913389")){
+if(isReact) return
+m.react("👨‍💻")
+}
+if(senderNumber.includes("94765527900")){
+if(isReact) return
+m.react("📍")
+}
+//=====================✓
 
-  
+if (config.AUTO_VOICE === 'true') {
+const url = 'https://raw.githubusercontent.com/DarkYasiyaofc/VOICE/main/Voice-Raw/FROZEN-V2'
+let { data } = await axios.get(url)
+for (vr in data){
+if((new RegExp(`\\b${vr}\\b`,'gi')).test(body)) conn.sendMessage(from,{audio: { url : data[vr]},mimetype: 'audio/mpeg',ptt:true},{quoted:mek})   
+ }}
+
+        
 const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
 if (isCmd) {
@@ -180,7 +192,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("SHAGEE MD started✅");
+res.send("hey, QUEEN-KYLIE-MD started✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
