@@ -71,7 +71,7 @@ console.log('Bot connected to whatsapp ✅')
 
 let up = `SHAGEE-MD CONNETED SUCCESSFULLY ✅\n\nPREFIX:${prefix}`;
 
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/d3b6c8f9b0f94a5131742.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/ec57b757c3c5890d510c3.jpg` }, caption: up })
 
 }
 })
@@ -140,11 +140,11 @@ if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
 if(!isOwner && !isGroup && config.MODE === "groups") return
 //=========OWNER - REACTION ===============================  
-if(senderNumber.includes("94718913389")){
+if(senderNumber.includes("94710136994")){
 if(isReact) return
 m.react("👨‍💻")
 }
-if(senderNumber.includes("94765527900")){
+if(senderNumber.includes("94710136994")){
 if(isReact) return
 m.react("📍")
 }
@@ -192,7 +192,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("hey, QUEEN-KYLIE-MD started✅");
+res.send("hey, SHAGEE-MD started✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
