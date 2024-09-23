@@ -1,12 +1,12 @@
 {
-  "name": "SHAGEE-MD",
-  "version": "1.0.0",
-  "description": "A WhatsApp Bot Created By SHAGEE Tech",
-  "main": "index.js",
-  "scripts": {
-    "start": "pm2 start index.js --deep-monitoring --attach --name SHAGEE-MD",
-    "stop": "pm2 stop SHAGEE-MD",
-    "restart": "pm2 restart SHAGEE-MD"
+"name": "web-pair",
+    "version": "0.0.1",
+    "description": "A multi functional whatsapp bot Web paircode.",
+    "main": "index.js",
+    "scripts": {
+      "start": "pm2 start index.js --deep-monitoring --attach --name prabath",
+      "stop": "pm2 stop prabath",
+     "restart": "pm2 restart prabath"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "6.6.0",
@@ -24,6 +24,9 @@
     "vm": "^0.1.0",
     "qrcode-terminal": "^0.12.0",
     "yt-search":"2.11.1",
-    "api-dylux":"1.8.5"
+    "api-dylux":"1.8.5",
+    "mongoose":"8.5.3"
+    
   }
 }
+   
